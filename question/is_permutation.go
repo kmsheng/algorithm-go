@@ -1,24 +1,16 @@
 package question
 
-func factorial(n int) uint64 {
-	num := uint64(1)
-	for i := 1; i <= n; i++ {
-		num *= uint64(i)
-	}
-	return num
-}
-
 func insert(arr []string, c rune) []string {
 	length := len(arr)
 	if length == 0 {
 		return append(arr, string(c))
 	}
-	n := factorial(length)
-	res := make([]string, n)
+	var res []string
+	char := string(c)
 	for i := 0; i < length; i++ {
 		str := arr[i]
 		for j := 0; j <= len(str); j++ {
-			newStr := str[:j] + string(c) + str[j:]
+			newStr := str[:j] + char + str[j:]
 			res = append(res, newStr)
 		}
 	}

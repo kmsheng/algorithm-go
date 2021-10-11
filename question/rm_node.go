@@ -2,7 +2,7 @@ package question
 
 import (
 	m "github.com/kmsheng/algorithm-go/model"
-	"reflect"
+	u "github.com/kmsheng/algorithm-go/util"
 )
 
 
@@ -10,7 +10,7 @@ func RmNode(node *m.LinkedNode) *m.LinkedNode {
 	target := node
 	for target.Next != nil {
 		target.Value = target.Next.Value
-		if (! reflect.ValueOf(target.Next).IsNil()) && reflect.ValueOf(target.Next.Next).IsNil() {
+		if (! u.IsNil(target.Next)) && u.IsNil(target.Next.Next) {
 			target.Next = nil
 			break
 		}
